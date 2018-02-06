@@ -22,7 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Activate and authorize an interactive session using [Google Cloud Vision Authentication](http://googlecloudplatform.github.io/google-cloud-ruby/#/docs/google-cloud-vision/v0.27.0/guides/authentication#withgooglecloudruby) and project id
+
+```sh
+$ VISION_PROJECT="my-project-id" VISION_KEYFILE=Project\ Key\ File.json pry --gem
+```
+
+Create a new `IiifGoogleCv::Client`
+
+```ruby
+> c = IiifGoogleCv::Client.new(manifest_url: 'https://purl.stanford.edu/hg676jb4964/iiif/manifest')
+```
+
+Create a manifest with annotations from the client
+
+```ruby
+> c.iiif_manifest_with_annotations
+Annotating ["https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/pct:50/0/default.jpg"]
+=> "https://api.myjson.com/bins/12uue9"
+```
+
+The returned url is now an annotated manifest of the images and can be viewed in a IIIF viewer like [Mirador](http://projectmirador.org/demo/).
+
+The API calls will fail if the images are too big or do not respond in time. You can modify the responding images from the IIIF Image API by changing the `SCALE_FACTOR` environment variable. This defaults to `0.5` (50% of original size).
+
 
 ## Development
 
@@ -32,7 +55,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/iiif_google_cv.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mejackreed/iiif_google_cv.
 
 ## License
 
