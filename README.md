@@ -25,7 +25,7 @@ Or install it yourself as:
 Activate and authorize an interactive session using [Google Cloud Vision Authentication](http://googlecloudplatform.github.io/google-cloud-ruby/#/docs/google-cloud-vision/v0.27.0/guides/authentication#withgooglecloudruby) and project id
 
 ```sh
-$ VISION_PROJECT="my-project-id" VISION_KEYFILE=Project\ Key\ File.json pry --gem
+$ VISION_PROJECT="my-project-id" VISION_KEYFILE=Project\ Key\ File.json bin/console
 ```
 
 Create a new `IiifGoogleCv::Client`
